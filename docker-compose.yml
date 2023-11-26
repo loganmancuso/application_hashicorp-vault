@@ -1,0 +1,35 @@
+version: '3.9'
+
+services:
+  webui:
+    restart: unless-stopped
+    container_name: vault
+    image: hashicorp/vault:latest
+    environment:
+      - TZ=America/New_York
+    volumes:
+      - private-volume:/vault/file:rw
+      - ./config:/vault/config:rw
+      - ./keys:/vault/certs:rw
+    cap_add:
+      - IPC_LOCK
+    networks:
+      - app_network
+    ports:
+      - 8200:8200 
+      - 8201:8201
+    entrypoint: vault server -config=/vault/config/vault.json
+    deploy:
+      resources:
+        limits:
+          cpus: '1'
+          memory: 1024M
+
+
+networks:
+  app_network:
+    name: app_network
+
+volumes:
+  private-volume:
+    name: vault-data
