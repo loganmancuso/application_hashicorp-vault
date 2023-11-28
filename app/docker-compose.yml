@@ -8,9 +8,9 @@ services:
     environment:
       - TZ=America/New_York
     volumes:
-      - private-volume:/vault/file:rw
+      - private-volume:/mnt/vault-data:rw
       - ./config:/vault/config:rw
-      - ./keys:/vault/certs:rw
+      - ./keys:/etc/ssl/certs/
     cap_add:
       - IPC_LOCK
     networks:
@@ -18,7 +18,7 @@ services:
     ports:
       - 8200:8200 
       - 8201:8201
-    entrypoint: vault server -config=/vault/config/vault.json
+    entrypoint: vault server -config /vault/config
     deploy:
       resources:
         limits:
