@@ -14,8 +14,8 @@ storage "file" {
 listener "tcp" {
   address            = "0.0.0.0:8200"
   tls_disable        = false
-  tls_cert_file      = "/etc/ssl/certs/cert-intranet.pem.crt"
-  tls_key_file       = "/etc/ssl/certs/privkey.pem"
-  tls_client_ca_file = "/etc/ssl/certs/cert-authority.pem.crt"
+  tls_cert_file      = "/etc/ssl/certs/${tls_cert_file}"
+  tls_key_file       = "/etc/ssl/certs/${tls_key_file}"
+  tls_client_ca_file = "/etc/ssl/certs/${tls_client_ca_file}"
   tls_min_version    = "tls13"
 }

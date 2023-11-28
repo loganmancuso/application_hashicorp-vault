@@ -126,6 +126,7 @@ resource "null_resource" "generate_crt_files" {
     intranet_cert      = local_file.intranet_cert.content_md5
     root_ca_file       = local_file.root_ca.filename
     intranet_cert_file = local_file.intranet_cert.filename
+    app_certs_path     = local.app_certs_path
   }
   provisioner "local-exec" {
     when        = create
@@ -133,8 +134,8 @@ resource "null_resource" "generate_crt_files" {
     command     = <<EOF
       openssl x509 -in ${local_file.root_ca.filename} -inform PEM -out ${local_file.root_ca.filename}.crt
       openssl x509 -in ${local_file.intranet_cert.filename} -inform PEM -out ${local_file.intranet_cert.filename}.crt
-      mkdir -p ./app/certs
-      cp ${local_file.root_ca.filename}.crt ${local_file.intranet_cert.filename}.crt ${local_file.client_priv.filename} ./app/certs
+      mkdir -p ${local.app_certs_path}
+      cp ${local_file.root_ca.filename}.crt ${local_file.intranet_cert.filename}.crt ${local_file.client_priv.filename} ${local.app_certs_path}
       sudo cp ${local_file.root_ca.filename}.crt ${local_file.intranet_cert.filename}.crt /usr/local/share/ca-certificates/
       sudo update-ca-certificates --fresh
     EOF
@@ -143,7 +144,7 @@ resource "null_resource" "generate_crt_files" {
     when        = destroy
     working_dir = path.module
     command     = <<EOF
-      rm -rf ./app/certs
+      rm -rf ${self.triggers.app_certs_path}
       rm ${self.triggers.root_ca_file}.crt ${self.triggers.intranet_cert_file}.crt
       sudo rm /usr/local/share/ca-certificates/*
       sudo update-ca-certificates --fresh
