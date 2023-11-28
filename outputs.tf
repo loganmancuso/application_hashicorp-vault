@@ -12,6 +12,12 @@ output "cert_root" {
   value       = tls_self_signed_cert.root.cert_pem
 }
 
+output "root_priv_key" {
+  description = "root certificate authority private key"
+  value       = tls_private_key.root.private_key_pem
+  sensitive   = true
+}
+
 output "root_pub_key" {
   description = "root certificate authority public key"
   value       = tls_private_key.root.public_key_pem
