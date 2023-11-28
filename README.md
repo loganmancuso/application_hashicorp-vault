@@ -4,7 +4,14 @@ This workflow sets up a terraform state with secrets available to downstream wor
 
 This workflow will deploy a full vault using tls certs using a generated root CA as well as client certs. 
 
-## Usage
+##### Dependancies
+- 
+
+### Conventions
+---
+#### 
+
+## Deployment
 to deploy this workflow link the environment tfvars folder to the root directory. 
 ```bash
   ln -s env/main.tf
@@ -14,9 +21,9 @@ to deploy this workflow link the environment tfvars folder to the root directory
   tofu plan
   tofu apply
 ```
-### Post Deployment
+## Post Deployment
 
-#### Initializing the vault
+1. Initializing the vault
 ```bash
 export VAULT_ADDR='https://localhost:8200'
 export VAULT_CAPATH=/usr/local/share/ca-certificates/cert-intranet.pem.crt
@@ -24,7 +31,7 @@ export VAULT_CAPATH=/usr/local/share/ca-certificates/cert-intranet.pem.crt
 vault operator init -key-shares=6 -key-threshold=3
 ```
 
-to unlcock the vault either run the commands below or use the helper script in scrips/unseal.sh
+2. unlock the vault either run the commands below or use the helper script in ./scrips/unseal.sh
 
 ```bash
 # Unlocking the exisiting vault
@@ -35,14 +42,13 @@ vault login $VAULT_DEV_ROOT_TOKEN_ID
 vault status -format=json
 ```
 
-#### Add Root Cert as trusted on the local machine
+## Notes 
+- Add Root Cert as trusted on the local machine
 ```bash
 sudo cp ./keys/**/*.pem.crt /usr/local/share/ca-certificates/
 sudo update-ca-certificates --fresh
 ```
-
-### add the unlock tokens to the proxmox.env 
-
+- add the unlock tokens to the proxmox.env source the file using `source proxmox.env`
 ```bash
 export VAULT_ADDR='https://localhost:8200'
 export VAULT_CAPATH=/usr/local/share/ca-certificates/cert-intranet.pem.crt
@@ -51,4 +57,3 @@ export UNSEAL_KEY_1=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 export UNSEAL_KEY_2=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 export UNSEAL_KEY_3=XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX
 ```
-then source the file using `source proxmox.env`
