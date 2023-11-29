@@ -1,0 +1,304 @@
+[
+    {
+        "Id": "12eaf70c2634e0ed3e63811bf0fb1808176332f95527050cd1a3e3eb016f898f",
+        "Created": "2023-11-28T15:38:43.778090271Z",
+        "Path": "vault",
+        "Args": [
+            "server",
+            "-config",
+            "/vault/config"
+        ],
+        "State": {
+            "Status": "running",
+            "Running": true,
+            "Paused": false,
+            "Restarting": false,
+            "OOMKilled": false,
+            "Dead": false,
+            "Pid": 23603,
+            "ExitCode": 0,
+            "Error": "",
+            "StartedAt": "2023-11-28T15:38:44.73060338Z",
+            "FinishedAt": "0001-01-01T00:00:00Z"
+        },
+        "Image": "sha256:45bebc58c44a7573a7566dff454de161e9cb3af475c99e7c36000bceb4a36ceb",
+        "ResolvConfPath": "/var/lib/docker/containers/12eaf70c2634e0ed3e63811bf0fb1808176332f95527050cd1a3e3eb016f898f/resolv.conf",
+        "HostnamePath": "/var/lib/docker/containers/12eaf70c2634e0ed3e63811bf0fb1808176332f95527050cd1a3e3eb016f898f/hostname",
+        "HostsPath": "/var/lib/docker/containers/12eaf70c2634e0ed3e63811bf0fb1808176332f95527050cd1a3e3eb016f898f/hosts",
+        "LogPath": "/var/lib/docker/containers/12eaf70c2634e0ed3e63811bf0fb1808176332f95527050cd1a3e3eb016f898f/12eaf70c2634e0ed3e63811bf0fb1808176332f95527050cd1a3e3eb016f898f-json.log",
+        "Name": "/vault",
+        "RestartCount": 0,
+        "Driver": "overlay2",
+        "Platform": "linux",
+        "MountLabel": "",
+        "ProcessLabel": "",
+        "AppArmorProfile": "docker-default",
+        "ExecIDs": null,
+        "HostConfig": {
+            "Binds": [
+                "/home/loganmancuso/source/Infrastructure/Applications/hashicorp-vault/./app/certs:/etc/ssl/certs:ro",
+                "/home/loganmancuso/source/Infrastructure/Applications/hashicorp-vault/./app/config:/vault/config:ro",
+                "vault-data:/mnt/vault-data:rw"
+            ],
+            "ContainerIDFile": "",
+            "LogConfig": {
+                "Type": "json-file",
+                "Config": {}
+            },
+            "NetworkMode": "default",
+            "PortBindings": {
+                "8200/tcp": [
+                    {
+                        "HostIp": "0.0.0.0",
+                        "HostPort": "8200"
+                    }
+                ],
+                "8201/tcp": [
+                    {
+                        "HostIp": "0.0.0.0",
+                        "HostPort": "8201"
+                    }
+                ]
+            },
+            "RestartPolicy": {
+                "Name": "unless-stopped",
+                "MaximumRetryCount": 0
+            },
+            "AutoRemove": false,
+            "VolumeDriver": "",
+            "VolumesFrom": null,
+            "ConsoleSize": [
+                0,
+                0
+            ],
+            "CapAdd": null,
+            "CapDrop": null,
+            "CgroupnsMode": "private",
+            "Dns": null,
+            "DnsOptions": null,
+            "DnsSearch": null,
+            "ExtraHosts": null,
+            "GroupAdd": null,
+            "IpcMode": "private",
+            "Cgroup": "",
+            "Links": null,
+            "OomScoreAdj": 0,
+            "PidMode": "",
+            "Privileged": false,
+            "PublishAllPorts": false,
+            "ReadonlyRootfs": false,
+            "SecurityOpt": null,
+            "UTSMode": "",
+            "UsernsMode": "",
+            "ShmSize": 67108864,
+            "Runtime": "runc",
+            "Isolation": "",
+            "CpuShares": 0,
+            "Memory": 0,
+            "NanoCpus": 0,
+            "CgroupParent": "",
+            "BlkioWeight": 0,
+            "BlkioWeightDevice": null,
+            "BlkioDeviceReadBps": null,
+            "BlkioDeviceWriteBps": null,
+            "BlkioDeviceReadIOps": null,
+            "BlkioDeviceWriteIOps": null,
+            "CpuPeriod": 0,
+            "CpuQuota": 0,
+            "CpuRealtimePeriod": 0,
+            "CpuRealtimeRuntime": 0,
+            "CpusetCpus": "",
+            "CpusetMems": "",
+            "Devices": null,
+            "DeviceCgroupRules": null,
+            "DeviceRequests": null,
+            "MemoryReservation": 0,
+            "MemorySwap": 0,
+            "MemorySwappiness": null,
+            "OomKillDisable": null,
+            "PidsLimit": null,
+            "Ulimits": null,
+            "CpuCount": 0,
+            "CpuPercent": 0,
+            "IOMaximumIOps": 0,
+            "IOMaximumBandwidth": 0,
+            "MaskedPaths": [
+                "/proc/asound",
+                "/proc/acpi",
+                "/proc/kcore",
+                "/proc/keys",
+                "/proc/latency_stats",
+                "/proc/timer_list",
+                "/proc/timer_stats",
+                "/proc/sched_debug",
+                "/proc/scsi",
+                "/sys/firmware",
+                "/sys/devices/virtual/powercap"
+            ],
+            "ReadonlyPaths": [
+                "/proc/bus",
+                "/proc/fs",
+                "/proc/irq",
+                "/proc/sys",
+                "/proc/sysrq-trigger"
+            ],
+            "Init": false
+        },
+        "GraphDriver": {
+            "Data": {
+                "LowerDir": "/var/lib/docker/overlay2/55a994c6b199fec48ed95d919917085ec3d18310396e64ac2fadc8ac3d6bdab5-init/diff:/var/lib/docker/overlay2/c93a498df1335a85f0e6dc3155331d87bb69398f417e612e0a16b00fc4aaf28f/diff:/var/lib/docker/overlay2/457d36e0584e95c834bead6dcc1e179a98850cf3e6ac9f8418799d0d1d74e4d2/diff:/var/lib/docker/overlay2/4009edb933d3342165874b3ce3de120445a0ab8675c75736ac6035efb1d69bde/diff:/var/lib/docker/overlay2/c03de8354e8e02566ddc328ca372d0e0e53b16be377d197cd6f9feae4e87d31e/diff:/var/lib/docker/overlay2/ed7592cd7a1e9c6bac3124d8d8fbd4c577460f02a34ee1fe8cba442cfa620d54/diff:/var/lib/docker/overlay2/78fcfb84c6b410fdcfb2b9ace61b82303bb19283e3c15ad94f09a0fa05a39bb6/diff:/var/lib/docker/overlay2/a8623a2a967d1df2d7b3b2217b42106ee171df9af6092ed9026b40105779a94e/diff",
+                "MergedDir": "/var/lib/docker/overlay2/55a994c6b199fec48ed95d919917085ec3d18310396e64ac2fadc8ac3d6bdab5/merged",
+                "UpperDir": "/var/lib/docker/overlay2/55a994c6b199fec48ed95d919917085ec3d18310396e64ac2fadc8ac3d6bdab5/diff",
+                "WorkDir": "/var/lib/docker/overlay2/55a994c6b199fec48ed95d919917085ec3d18310396e64ac2fadc8ac3d6bdab5/work"
+            },
+            "Name": "overlay2"
+        },
+        "Mounts": [
+            {
+                "Type": "bind",
+                "Source": "/home/loganmancuso/source/Infrastructure/Applications/hashicorp-vault/app/certs",
+                "Destination": "/etc/ssl/certs",
+                "Mode": "ro",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "bind",
+                "Source": "/home/loganmancuso/source/Infrastructure/Applications/hashicorp-vault/app/config",
+                "Destination": "/vault/config",
+                "Mode": "ro",
+                "RW": false,
+                "Propagation": "rprivate"
+            },
+            {
+                "Type": "volume",
+                "Name": "vault-data",
+                "Source": "/var/lib/docker/volumes/vault-data/_data",
+                "Destination": "/mnt/vault-data",
+                "Driver": "local",
+                "Mode": "rw",
+                "RW": true,
+                "Propagation": ""
+            },
+            {
+                "Type": "volume",
+                "Name": "7dc13f9084276a1c09df73f2314a51e4f3b9993aae11c1fb44919d45917c9b95",
+                "Source": "/var/lib/docker/volumes/7dc13f9084276a1c09df73f2314a51e4f3b9993aae11c1fb44919d45917c9b95/_data",
+                "Destination": "/vault/file",
+                "Driver": "local",
+                "Mode": "",
+                "RW": true,
+                "Propagation": ""
+            },
+            {
+                "Type": "volume",
+                "Name": "d6ccc2885a135b95eeab37b56b078fe77082b0eded0ac2453aec53693e4380df",
+                "Source": "/var/lib/docker/volumes/d6ccc2885a135b95eeab37b56b078fe77082b0eded0ac2453aec53693e4380df/_data",
+                "Destination": "/vault/logs",
+                "Driver": "local",
+                "Mode": "",
+                "RW": true,
+                "Propagation": ""
+            }
+        ],
+        "Config": {
+            "Hostname": "12eaf70c2634",
+            "Domainname": "",
+            "User": "",
+            "AttachStdin": false,
+            "AttachStdout": false,
+            "AttachStderr": false,
+            "ExposedPorts": {
+                "8200/tcp": {},
+                "8201/tcp": {}
+            },
+            "Tty": false,
+            "OpenStdin": false,
+            "StdinOnce": false,
+            "Env": [
+                "TZ=America/New_York",
+                "PATH=/usr/local/sbin:/usr/local/bin:/usr/sbin:/usr/bin:/sbin:/bin",
+                "NAME=vault",
+                "VERSION="
+            ],
+            "Cmd": null,
+            "Image": "sha256:45bebc58c44a7573a7566dff454de161e9cb3af475c99e7c36000bceb4a36ceb",
+            "Volumes": {
+                "/etc/ssl/certs": {},
+                "/mnt/vault-data": {},
+                "/vault/config": {},
+                "/vault/file": {},
+                "/vault/logs": {}
+            },
+            "WorkingDir": "",
+            "Entrypoint": [
+                "vault",
+                "server",
+                "-config",
+                "/vault/config"
+            ],
+            "OnBuild": null,
+            "Labels": {
+                "description": "Vault is a tool for securely accessing secrets. A secret is anything that you want to tightly control access to, such as API keys, passwords, certificates, and more. Vault provides a unified interface to any secret, while providing tight access control and recording a detailed audit log.",
+                "maintainer": "Vault Team <vault@hashicorp.com>",
+                "name": "Vault",
+                "release": "cf1b5cafa047bc8e4a3f93444fcb4011593b92cb",
+                "revision": "cf1b5cafa047bc8e4a3f93444fcb4011593b92cb",
+                "summary": "Vault is a tool for securely accessing secrets.",
+                "vendor": "HashiCorp",
+                "version": "1.15.2"
+            }
+        },
+        "NetworkSettings": {
+            "Bridge": "",
+            "SandboxID": "38a6841ffa156d1b64e84cd6b0681b520cef7fb0690329f24b5865a691a138b4",
+            "HairpinMode": false,
+            "LinkLocalIPv6Address": "",
+            "LinkLocalIPv6PrefixLen": 0,
+            "Ports": {
+                "8200/tcp": [
+                    {
+                        "HostIp": "0.0.0.0",
+                        "HostPort": "8200"
+                    }
+                ],
+                "8201/tcp": [
+                    {
+                        "HostIp": "0.0.0.0",
+                        "HostPort": "8201"
+                    }
+                ]
+            },
+            "SandboxKey": "/var/run/docker/netns/38a6841ffa15",
+            "SecondaryIPAddresses": null,
+            "SecondaryIPv6Addresses": null,
+            "EndpointID": "",
+            "Gateway": "",
+            "GlobalIPv6Address": "",
+            "GlobalIPv6PrefixLen": 0,
+            "IPAddress": "",
+            "IPPrefixLen": 0,
+            "IPv6Gateway": "",
+            "MacAddress": "",
+            "Networks": {
+                "vault-network": {
+                    "IPAMConfig": {},
+                    "Links": null,
+                    "Aliases": [
+                        "12eaf70c2634"
+                    ],
+                    "NetworkID": "866ec533aa7296180e652b414125fee95bc858800be206bce4140d0c05d9a82f",
+                    "EndpointID": "66e87edd2bbfdee93bac27865ce18319933fcc9ea1f63473fc07f0b38dfe39c5",
+                    "Gateway": "172.18.0.1",
+                    "IPAddress": "172.18.0.2",
+                    "IPPrefixLen": 16,
+                    "IPv6Gateway": "",
+                    "GlobalIPv6Address": "",
+                    "GlobalIPv6PrefixLen": 0,
+                    "MacAddress": "02:42:ac:12:00:02",
+                    "DriverOpts": null
+                }
+            }
+        }
+    }
+]
