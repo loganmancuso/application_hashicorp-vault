@@ -36,7 +36,7 @@ resource "tls_self_signed_cert" "root" {
     province     = "SC"
   }
 
-  validity_period_hours = 3650
+  validity_period_hours = 87660
   early_renewal_hours   = 365
 
   allowed_uses = [
