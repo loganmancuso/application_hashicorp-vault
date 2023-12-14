@@ -37,7 +37,7 @@ resource "tls_self_signed_cert" "root" {
   }
 
   validity_period_hours = 87660
-  early_renewal_hours   = 365
+  # early_renewal_hours   = 365
 
   allowed_uses = [
     "key_encipherment",
@@ -138,6 +138,7 @@ resource "null_resource" "generate_crt_files" {
       cp ${local_file.root_ca.filename}.crt ${local_file.intranet_cert.filename}.crt ${local_file.client_priv.filename} ${local.app_certs_path}
       sudo cp ${local_file.root_ca.filename}.crt ${local_file.intranet_cert.filename}.crt /usr/local/share/ca-certificates/
       sudo update-ca-certificates --fresh
+      tar -czvf ${path.module}/keys/keys.tar.gz ${path.module}/keys
     EOF
   }
   provisioner "local-exec" {
@@ -145,7 +146,7 @@ resource "null_resource" "generate_crt_files" {
     working_dir = path.module
     command     = <<EOF
       rm -rf ${self.triggers.app_certs_path}
-      rm ${self.triggers.root_ca_file}.crt ${self.triggers.intranet_cert_file}.crt
+      rm ${self.triggers.root_ca_file}.crt ${self.triggers.intranet_cert_file}.crt ${path.module}/keys/keys.tar.gz
       sudo rm /usr/local/share/ca-certificates/*
       sudo update-ca-certificates --fresh
     EOF
