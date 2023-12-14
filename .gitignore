@@ -12,3 +12,4 @@ app/config
 keys/
 *.pem
 *.crt
+*.tar.gz

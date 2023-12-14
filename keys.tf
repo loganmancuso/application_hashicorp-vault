@@ -36,8 +36,8 @@ resource "tls_self_signed_cert" "root" {
     province     = "SC"
   }
 
-  validity_period_hours = 87660
-  # early_renewal_hours   = 365
+  validity_period_hours = 87660 # 10 years
+  early_renewal_hours   = 365
 
   allowed_uses = [
     "key_encipherment",
@@ -75,8 +75,8 @@ resource "tls_locally_signed_cert" "intranet" {
   ca_private_key_pem = tls_private_key.root.private_key_pem
   ca_cert_pem        = tls_self_signed_cert.root.cert_pem
 
-  validity_period_hours = 365
-  early_renewal_hours   = 36
+  validity_period_hours = 87660 # 10 years
+  early_renewal_hours   = 365
 
   allowed_uses = [
     "key_encipherment",
