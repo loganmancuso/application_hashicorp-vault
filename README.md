@@ -1,4 +1,4 @@
-# Terraform Proxmox
+# Terraform Application
 
 This workflow sets up a terraform state with secrets available to downstream workflows 
 
