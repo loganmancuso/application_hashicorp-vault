@@ -5,22 +5,22 @@ This workflow sets up a terraform state with secrets available to downstream wor
 This workflow will deploy a full vault using tls certs using a generated root CA as well as client certs. 
 
 ##### Dependancies
-- 
+- none
 
 ### Conventions
 ---
+there are 3 groups that secrets can be part of, either infra secrets which are a backbone to the infrastructure of an application. an app secret is designed for infromation passed to a container, and shared which are secrets that might need to be available to distinct systems.
 #### 
 
 ## Deployment
 to deploy this workflow link the environment tfvars folder to the root directory. 
 ```bash
-  ln -s env/main.tf
-  ln -s env/terraform.tfvars
-
+  ln -s env/* .
   tofu init .
   tofu plan
   tofu apply
 ```
+
 ## Post Deployment
 
 1. Initializing the vault
